@@ -28,7 +28,7 @@
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $portfolio->name }}</td>
-                                <td>{{ $portfolio['portfolioCategory']['name'] }}</td>
+                                <td>{{ $portfolio['portfolioCategory']['name'] ?? '' }}</td>
                                 <td>
                                     <img src="{{ asset('upload/' . $portfolio->photo) }}"
                                         class="img-fluid img-thumbnail img-style">
