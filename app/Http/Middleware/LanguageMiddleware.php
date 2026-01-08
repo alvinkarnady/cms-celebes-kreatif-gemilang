@@ -24,8 +24,10 @@ class LanguageMiddleware
 
         $language_admin_details = LanguageDetail::where('lang_id',session('session_lang_id'))->get();
         foreach($language_admin_details as $row) {
-            define($row->lang_string, $row->lang_string_value);
-        };
+            if (!defined($row->lang_string)) {
+                define($row->lang_string, $row->lang_string_value);
+            }
+        }
 
         return $next($request);
     }
